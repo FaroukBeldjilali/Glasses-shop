@@ -1,0 +1,315 @@
+/* ==========================================
+   RESET & GLOBAL (تصفير الهوامش لضمان الامتداد)
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F8F9FA; /* خلفية الموقع العامة */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ==========================================
+   HEADER SECTION (الهيدر بالكامل)
+   ========================================== */
+.header {
+    width: 100%;
+    background-color: #1A1A1A; /* الأسود الفاخر */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 1. الجزء العلوي: اللوغو والروابط (.n-brand) */
+.header .n-brand {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* توسيط اللوغو والروابط أفقياً */
+    justify-content: center;
+    padding: 25px 15px 20px 15px;
+    background-color: #1A1A1A;
+}
+
+/* تنسيق صورة اللوغو */
+.header .n-brand > img {
+    width: 170px;            /* التحكم في عرض الشعار */
+    height: auto;
+    display: block;
+    margin-bottom: 18px;     /* مسافة بين اللوغو وقائمة الروابط */
+}
+
+/* تنسيق قائمة الروابط (nav) */
+.header .n-brand nav {
+    display: flex;
+    gap: 25px;               /* المسافة بين كل رابط وآخر */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;         /* لضمان التنسيق في الشاشات الصغيرة */
+}
+
+/* تنسيق أزرار التنقل (a) */
+.header .n-brand nav a {
+    color: #1A1A1A;         /* الذهبي الملكي */
+    background-color: #D4AF37;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* 2. الجزء السفلي: صورة وهران الممتدة (.s-bran) */
+.header .s-bran {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* تنسيق الصورة العريضة (البانر) بدون أي padding أو margin */
+.header .s-bran img {
+    width: 100%;
+    height: 380px;            /* ارتفاع متناسق للبانر */
+    object-fit: cover;        /* تغطية كامل المساحة بدون تشويه */
+    display: block;           /* منع الفراغات السفلية الافتراضية */
+    border: none;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (للأجهزة المحمولة)
+   ========================================== */
+@media (max-width: 600px) {
+    .header .n-brand > img {
+        width: 130px;
+    }
+
+    .header .n-brand nav {
+        gap: 12px;
+    }
+
+    .header .n-brand nav a {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+
+    .header .s-bran img {
+        height: 250px;         /* ملاءمة ارتفاع البانر لشاشات الهاتف */
+    }
+}
+/* ==========================================
+   MAIN SECTION (قسم عرض المنتجات)
+   ========================================== */
+main.card {
+    max-width: 1200px;
+    margin: 40px auto;        /* مسافة علوية وسفلية وتوسيط القسم */
+    padding: 0 20px;
+    display: grid;
+    /* شبكة متجاوبة: بطاقتين في الهاتف و4 في الشاشات الكبيرة */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;                /* المسافة بين كل بطاقة وأخرى */
+}
+
+/* ==========================================
+   CARD STYLES (تنسيق البطاقات)
+   ========================================== */
+/* تطبيق التنسيق على جميع البطاقات (card-1, card-2, إلخ) */
+main.card > div {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* ظل خفيف وناعم */
+    border: 1px solid #EAEAEA;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* تأثير ارتفاع البطاقة عند مرور الماوس (Hover) */
+main.card > div:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* 1. صورة النظارة داخل البطاقة */
+main.card > div img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;     /* لضمان إظهار النظارة بالكامل بدون قص */
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+main.card > div:hover img {
+    transform: scale(1.05);  /* تكبير خفيف للصورة عند الوقوف عليها */
+}
+
+/* 2. نص السعر (p) */
+main.card > div p {
+    color: #1A1A1A;          /* الأسود الفاخر */
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* 3. أزرار التفاصيل (btn) */
+main.card > div .btn {
+    width: 100%;
+    background-color: #1A1A1A;  /* خلفية سوداء */
+    color: #D4AF37;             /* نص ذهبي */
+    border: 1px solid #1A1A1A;
+    padding: 12px 0;
+    border-radius: 25px;        /* أزرار مدورة أنيقة */
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* تأثير مرور الماوس على الزر */
+main.card > div .btn:hover {
+    background-color: #D4AF37; /* تتحول الخلفية للذهبي */
+    color: #1A1A1A;             /* يتحول النص للأسود */
+    border-color: #D4AF37;
+}
+
+/* ==========================================
+   RESPONSIVE (الشاشات الصغيرة)
+   ========================================== */
+@media (max-width: 600px) {
+    main.card {
+        margin: 20px auto;
+        gap: 15px;
+        padding: 0 12px;
+    }
+
+    main.card > div {
+        padding: 15px;
+    }
+
+    main.card > div img {
+        height: 140px;
+    }
+
+    main.card > div p {
+        font-size: 16px;
+    }
+
+    main.card > div .btn {
+        padding: 10px 0;
+        font-size: 12px;
+    }
+}
+/* ==========================================
+   FOOTER SECTION (الفوتر النهائي)
+   ========================================== */
+.footer {
+    background-color: #1A1A1A; /* الأسود الفاخر المطابق للوحة في الصورة */
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    border-top: 2px solid #D4AF37; /* خط ذهبي رفيع يفصل الفوتر عن الموقع */
+}
+
+/* 1. قسم الشعار والاسم (n-forter) */
+.footer .n-forter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer .n-forter img {
+    width: 120px; /* حجم الشعار في الفوتر */
+    height: auto;
+}
+
+.footer .n-forter h2 {
+    color: #D4AF37; /* الاسم باللون الذهبي */
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* 2. صندوق التواصل الداخلي (s-forter) المطابق للصورة */
+.footer .s-forter {
+    background-color: #2A2A2A; /* لون رمادي داكن ليبرز الصندوق مثل الصورة */
+    padding: 30px 40px;
+    border-radius: 12px; /* حواف دائرية ناعمة */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px; /* تحديد عرض الصندوق */
+    border: 1px solid #333;
+}
+
+.footer .s-forter p {
+    color: #F8F9FA;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* 3. زر الواتساب (WhatsApp Button) */
+.footer .s-forter button {
+    background-color: #25D366; /* لون الواتساب الأخضر الرسمي */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); /* توهج أخضر خفيف */
+    overflow: hidden; /* لضمان بقاء الرابط داخل الحواف الدائرية */
+}
+
+/* تنسيق الرابط داخل الزر ليأخذ المساحة كاملة */
+.footer .s-forter button a {
+    display: block; /* لجعل الرابط يغطي الزر بالكامل */
+    padding: 12px 35px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* تأثير تحويم الماوس على زر الواتساب */
+.footer .s-forter button:hover {
+    background-color: #20BA56; /* أخضر داكن قليلاً */
+    transform: scale(1.05); /* تكبير الزر قليلاً للفت الانتباه */
+}
+
+/* ==========================================
+   RESPONSIVE (الشاشات الصغيرة)
+   ========================================== */
+@media (max-width: 600px) {
+    .footer {
+        padding: 40px 15px;
+        gap: 30px;
+    }
+
+    .footer .s-forter {
+        padding: 25px 20px;
+    }
+
+    .footer .s-forter p {
+        font-size: 16px;
+    }
+
+    .footer .s-forter button a {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
