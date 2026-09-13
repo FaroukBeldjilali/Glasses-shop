@@ -62,8 +62,7 @@ body {
     padding: 6px 12px;
     border-radius: 20px;
 }
-
-/* 2. الجزء السفلي: صورة وهران الممتدة (.s-bran) */
+/* 2. الجزء السفلي: صورة وهران الممتدة */
 .header .s-bran {
     width: 100%;
     margin: 0;
@@ -71,12 +70,10 @@ body {
     overflow: hidden;
 }
 
-/* تنسيق الصورة العريضة (البانر) بدون أي padding أو margin */
 .header .s-bran img {
     width: 100%;
-    height: 380px;            /* ارتفاع متناسق للبانر */
-    object-fit: cover;        /* تغطية كامل المساحة بدون تشويه */
-    display: block;           /* منع الفراغات السفلية الافتراضية */
+    height: auto;
+    display: block;
     border: none;
 }
 
@@ -104,109 +101,66 @@ body {
 /* ==========================================
    MAIN SECTION (قسم عرض المنتجات)
    ========================================== */
+/* ==========================================
+   MAIN SECTION (قسم المنتجات بتنسيق الشبكة المنظم)
+   ========================================== */
 main.card {
     max-width: 1200px;
-    margin: 40px auto;        /* مسافة علوية وسفلية وتوسيط القسم */
-    padding: 0 20px;
+    margin: 30px auto;
+    padding: 0 15px;
     display: grid;
-    /* شبكة متجاوبة: بطاقتين في الهاتف و4 في الشاشات الكبيرة */
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 30px;                /* المسافة بين كل بطاقة وأخرى */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
 }
 
-/* ==========================================
-   CARD STYLES (تنسيق البطاقات)
-   ========================================== */
-/* تطبيق التنسيق على جميع البطاقات (card-1, card-2, إلخ) */
+/* تنسيق البطاقة الواحدة */
 main.card > div {
     background-color: #FFFFFF;
     border-radius: 12px;
-    padding: 20px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* ظل خفيف وناعم */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border: 1px solid #EAEAEA;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* تأثير ارتفاع البطاقة عند مرور الماوس (Hover) */
-main.card > div:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-}
-
-/* 1. صورة النظارة داخل البطاقة */
+/* ضبط الصورة لملء الفراغ بشكل احترافي */
 main.card > div img {
     width: 100%;
-    height: 180px;
-    object-fit: contain;     /* لضمان إظهار النظارة بالكامل بدون قص */
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
 }
 
-main.card > div:hover img {
-    transform: scale(1.05);  /* تكبير خفيف للصورة عند الوقوف عليها */
-}
-
-/* 2. نص السعر (p) */
+/* تنسيق السعر */
 main.card > div p {
-    color: #1A1A1A;          /* الأسود الفاخر */
-    font-size: 18px;
+    color: #1A1A1A;
+    font-size: 16px;
     font-weight: 700;
-    margin-bottom: 15px;
-    letter-spacing: 0.5px;
+    margin-bottom: 12px;
 }
 
-/* 3. أزرار التفاصيل (btn) */
+/* زر عرض التفاصيل */
 main.card > div .btn {
     width: 100%;
-    background-color: #1A1A1A;  /* خلفية سوداء */
-    color: #D4AF37;             /* نص ذهبي */
-    border: 1px solid #1A1A1A;
-    padding: 12px 0;
-    border-radius: 25px;        /* أزرار مدورة أنيقة */
-    font-size: 13px;
+    background-color: #1A1A1A;
+    color: #D4AF37;
+    border: none;
+    padding: 10px 0;
+    border-radius: 20px;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-/* تأثير مرور الماوس على الزر */
 main.card > div .btn:hover {
-    background-color: #D4AF37; /* تتحول الخلفية للذهبي */
-    color: #1A1A1A;             /* يتحول النص للأسود */
-    border-color: #D4AF37;
-}
-
-/* ==========================================
-   RESPONSIVE (الشاشات الصغيرة)
-   ========================================== */
-@media (max-width: 600px) {
-    main.card {
-        margin: 20px auto;
-        gap: 15px;
-        padding: 0 12px;
-    }
-
-    main.card > div {
-        padding: 15px;
-    }
-
-    main.card > div img {
-        height: 140px;
-    }
-
-    main.card > div p {
-        font-size: 16px;
-    }
-
-    main.card > div .btn {
-        padding: 10px 0;
-        font-size: 12px;
-    }
+    background-color: #D4AF37;
+    color: #1A1A1A;
 }
 /* ==========================================
    FOOTER SECTION (الفوتر النهائي)
